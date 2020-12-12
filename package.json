@@ -23,6 +23,7 @@
     "@testing-library/user-event": "^12.1.10",
     "node-sass": "^5.0.0",
     "react-scripts": "4.0.1",
+    "react-test-renderer": "^17.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-saga-test-plan": "^4.0.1"
   },
@@ -36,6 +37,23 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.spec.js",
+          "*.test.js"
+        ],
+        "rules": {
+          "import/named": "off",
+          "global-require": "off",
+          "react/button-has-type": "off",
+          "react/prop-types": "off"
+        },
+        "globals": {
+          "render": true
+        }
+      }
     ]
   },
   "browserslist": {
@@ -48,6 +66,30 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!<rootDir>/node_modules/",
+      "!src/core/api/**/*.js",
+      "!src/core/constants/**/*.js",
+      "!src/store/index.js",
+      "!src/store/rootReducer.js",
+      "!src/store/rootSaga.js",
+      "!src/pages/**/*.js",
+      "!src/templates/base/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "props.js"
     ]
   }
 }
