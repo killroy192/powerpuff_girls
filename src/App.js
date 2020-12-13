@@ -6,12 +6,12 @@ import {
   Route
 } from "react-router-dom";
 import createStore from 'store';
-import { INDEX } from 'core/constants/pageConfig'
+import { INDEX, EPISODES } from 'core/constants/pageConfig'
+import Skeleton from 'react-loading-skeleton';
 import './main.scss';
 
-const Show = lazy(() => import('pages/show'));
-
-const Loading = () => <div>Loading...</div>;
+const ShowPage = lazy(() => import('pages/show'));
+const Episodes = lazy(() => import('pages/episodes'));
 
 const store = createStore();
 
@@ -19,10 +19,13 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Skeleton />}>
           <Switch>
+            <Route path={EPISODES.path}>
+              <Episodes />
+            </Route>
             <Route path={INDEX.path}>
-              <Show />
+              <ShowPage />
             </Route>
           </Switch>
         </Suspense>

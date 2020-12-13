@@ -7,4 +7,11 @@ import '@testing-library/react-hooks';
 import { render } from '@testing-library/react';
 import '@testing-library/user-event';
 
+const baseRenderCheck = component => {
+  it('should render correctly', () => {
+    expect(component).toMatchSnapshot();
+  });
+};
+
 global.render = render;
+global.baseRenderCheck = baseRenderCheck;

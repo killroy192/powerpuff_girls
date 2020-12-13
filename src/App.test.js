@@ -1,6 +1,6 @@
 import App from './App';
 
-test('renders learn react link', () => {
+describe('App component', () => {
   const component = render(<App />);
-  expect(component).toMatchSnapshot();
+  baseRenderCheck(component);
 });

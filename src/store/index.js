@@ -1,7 +1,6 @@
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { batchDispatchMiddleware } from 'redux-batched-actions';
 import env from 'core/env';
 
 import { rootReducer } from './rootReducer';
@@ -20,7 +19,6 @@ const configureStore = initialState => {
     rootReducer,
     initialState,
     bindMiddleware(
-      batchDispatchMiddleware,
       sagaMiddleware
     ),
   );

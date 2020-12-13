@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-
-const INIT_STATE = 'data';
-
-const identity = (state = INIT_STATE, action) => state;
+import { reducer as show } from './show';
+import { reducer as episodes } from './episodes'
 
 export const rootReducer = combineReducers({
-  identity
+  show,
+  episodes,
 });

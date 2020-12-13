@@ -1,0 +1,15 @@
+import {
+  GET_DATA_PREFIX,
+  STORE_DATA_PREFIX,
+  SET_IS_LOADING_PREFIX,
+  CANCEL_FETCHING_PREFIX,
+  CLEAR_DATA_PREFIX,
+} from './constants';
+
+export const createActionTypes = id => ({
+  GET_DATA: `${GET_DATA_PREFIX}${id}`,
+  STORE_DATA: `${STORE_DATA_PREFIX}${id}`,
+  SET_IS_LOADING: `${SET_IS_LOADING_PREFIX}${id}`,
+  CANCEL_FETCHING: `${CANCEL_FETCHING_PREFIX}${id}`,
+  CLEAR_DATA: `${CLEAR_DATA_PREFIX}${id}`,
+});

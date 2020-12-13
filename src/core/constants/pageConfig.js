@@ -29,5 +29,5 @@ export const navPageConfig = [
   INDEX,
   EPISODES,
   CAST,
-  CREW
+  CREW,
 ]

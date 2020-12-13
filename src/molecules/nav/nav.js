@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import classNames from 'classnames';
 import { NavLink } from "react-router-dom";
 import { navPageConfig } from 'core/constants/pageConfig';
+import { NavPropTypes } from './nav.props';
 
-
-export const Nav = ({ className }) => (
+const Nav = ({ className }) => (
   <nav className={classNames('nav nav-pills', className)}>
     {
       navPageConfig.map(
@@ -13,6 +14,7 @@ export const Nav = ({ className }) => (
             className={classNames('nav-link', { disabled })}
             activeClassName="active"
             key={path}
+            exact
           >
             {name}
           </NavLink>
@@ -20,4 +22,8 @@ export const Nav = ({ className }) => (
       )
     }
   </nav>
-)
+);
+
+Nav.defaultProps = NavPropTypes;
+
+export default memo(Nav);
